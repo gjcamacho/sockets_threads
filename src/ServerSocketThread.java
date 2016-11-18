@@ -18,6 +18,7 @@ public class ServerSocketThread extends Thread{
 	}
 
 	public void run(){
+		System.out.println("ServerSocket: Arrancando");
 		while(!die){
 			while(!pause){
 				try {
@@ -31,11 +32,11 @@ public class ServerSocketThread extends Thread{
 					int k=0;
 					int j=0;
 					String buffer="";
-					System.out.println("Server: datos leidos: " + buffer);
+					System.out.println("ServerSocket: "+id+" datos leidos: " + buffer);
 					
-					System.out.println("Server: Apunto de leer datos");
-					System.out.println(buf.readLine());
-					System.out.println("Server: Datos leidos");
+					System.out.println("ServerSocket: "+id+" Apunto de leer datos");
+					System.out.println("ServerSocket: "+id+" " + buf.readLine());
+					System.out.println("ServerSocket: "+id+" Datos leidos");
 				
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block

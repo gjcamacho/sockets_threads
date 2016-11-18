@@ -23,8 +23,15 @@ public class ClientGenerator extends Thread{
 				client.start();
 				
 				k++;
-				pause=true;
-				die=true;
+				
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				//pause=true;
+				//die=true;
 				
 			}
 		}

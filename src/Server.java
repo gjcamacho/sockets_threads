@@ -47,8 +47,8 @@ public class Server extends Thread{
 					
 					sst.start();
 					
-					pause=true;
-					die=true;
+					//pause=true;
+					//die=true;
 					
 					
 				} catch (IOException e) {
