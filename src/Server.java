@@ -22,7 +22,7 @@ public class Server extends Thread{
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		
+		int k=0;
 		while(!die){
 			while(!pause){
 				System.out.println("Arrancando: Server");
@@ -42,28 +42,16 @@ public class Server extends Thread{
 					Socket socket=serverSocket.accept();
 					System.out.println("Server: Conexion establecida:");
 					
-					DataInputStream dis=new DataInputStream(socket.getInputStream());
+					ServerSocketThread sst=new ServerSocketThread(k,socket);
+					k++;
 					
-					BufferedReader buf=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-					
-					Thread.sleep(1000);
-					int k=0;
-					int j=0;
-					String buffer="";
-					System.out.println("Server: datos leidos: " + buffer);
-					
-					System.out.println("Server: Apunto de leer datos");
-					System.out.println(buf.readLine());
-					System.out.println("Server: Datos leidos");
+					sst.start();
 					
 					pause=true;
 					die=true;
 					
 					
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} 
